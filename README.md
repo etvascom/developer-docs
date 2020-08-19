@@ -1,2 +1,3 @@
-# developer-docs
-Developer Documentation
+# ETVAS Developer Documentation
+
+[Sending Emails](docs/sending-emails.md)
