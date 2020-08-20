@@ -96,46 +96,9 @@ Where:
 
 ### Signature
 
-In order to secure the ReST endpoint, a signature is required. The signature is a `HMAC` / `SHA256` with a `HEX` encoding. The payload that must be signed is the JSON canonical representation of the body. The secret is provided by Etvas.
+In order to secure the ReST endpoint, a signature is required. The signature is a `HMAC` / `SHA256` with a `hex` (lowercase) encoding. The payload that must be signed is the JSON canonical representation of the body. The secret is provided by Etvas.
 
-Here is a complete example for NodeJS:
-
-```
-const crypto = require('crypto')
-const axios = require('axios')
-const assert = require('assert')
-
-function getSignature(payload, secret) {
-  const canonical = JSON.stringify(payload)
-  return crypto.createHmac('sha256', secret)
-    .update(canonical)
-    .digest('hex')
-}
-
-const payload = {
-  locale: "en",
-  subject: "Hello #user_first_name",
-  message: "<h1 class="title">Dear #user_first_name #user_last_name,</h1><p>Your last visit was more than one month ago. Please update your documents on <a href="#product_use_url">#product_name</a> in order to maintain an up-to-date status on your assets.</p>"
-}
-
-const signature = getSignature(payload, process.env.ETVAS_HMAC_KEY)
-
-const http = axios.create({
-  baseURL: process.env.ETVAS_API_BASE_URL
-})
-
-http.post('/user/notify, payload, {
-  headers: {
-    'x-etvas-context': 12345678-4123-1234-1234-0123456789ab
-    'x-signature': signature,
-    'x-api-key': process.env.ETVAS_API_KEY
-  }
-}).then(response => {
-  assert(response.statusCode === 204)
-}).catch(err => {
-  console.error('Error while sending email', err)
-})
-```
+For detailed documentation please see [Signing](./signing.md)
 
 ## TODO:
 
