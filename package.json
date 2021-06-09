@@ -1,0 +1,30 @@
+{
+  "name": "developer-docs",
+  "version": "1.0.0",
+  "description": "- [Sending Emails](docs/sending-emails.md) - [Signing Requests](docs/signing.md)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "dependencies": {
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etvascom/developer-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/etvascom/developer-docs/issues"
+  },
+  "homepage": "https://github.com/etvascom/developer-docs#readme"
+}
