@@ -274,3 +274,57 @@ x-signature: computed_signature_hex
 ```
 
 In both cases, a 2XX response indicates success and a 4XX or 5XX indicates failure. Inspecting the response body gives you a hint about what went wrong.
+
+##### Obtaining a SSO token for an existing customer
+
+You can obtain a SSO token for any existing customer you created by using a POST request with the following signature:
+
+```
+HTTP/1.1 POST https://api.helloetvas.com/users/email%40example.com/sso
+Accept: application/json
+x-api-key: your_api_key
+x-timestamp: 1623609821835
+x-signature: computed_signature_hex
+--
+```
+
+The successful response will resemble:
+
+```
+HTTP/1.1
+Content-Type: application/json
+--
+{
+  token: 'sso_token'
+}
+```
+
+This token is to be injected in Etvas Automat, and so make calls within a SSO customer authenticated context.
+
+### Allow customers to use purchased products and services
+
+Each purchased product has a separate application, fully interfaced with Etvas Platform, which will allow the customer to use the product. For this, you must obtain a _use purchased product_ token for a customer.
+
+Here's how:
+
+```
+HTTP/1.1 POST https://api.helloetvas.com/users/email%40example.com/products/[product_id]/use
+Accept: application/json
+x-api-key: your_api_key
+x-timestamp: 1623609821835
+x-signature: computed_signature_hex
+--
+```
+
+This will trigger a JSON response in the following form:
+
+```
+HTTP/1.1
+Content-Type: application/json
+--
+{
+  token: 'use_token'
+}
+```
+
+The token is, however, to be transmitted and used with Etvas Automat.
