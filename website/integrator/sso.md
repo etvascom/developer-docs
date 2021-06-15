@@ -1,4 +1,4 @@
-### Single Sign On - Server to Server
+# Single Sign On - Server to Server
 
 In order to achieve the best User Experience, Etvas implements a SSO mechanism to be used exclusively in a Server-to-Server dialogue.
 
@@ -14,11 +14,11 @@ Logging in a customer behind the scenes requires a dialogue between your BackEnd
    2.4. Pass the token back to the FrontEnd application
 3. The FrontEnd application uses Etvas Automat to obtain a login for the current user using the token received.
 
-##### Installing and initializing Etvas Automat
+## Installing and initializing Etvas Automat
 
 Etvas Automat is a Javascript library you can use in your FrontEnd application to manage various aspects of User Interface regarding Etvas Platform.
 
-**Installing Etvas automat without a package manager**
+### Installing Etvas automat without a package manager
 
 Use a `<script>` tag to reference the package. Using this method will register an object called `etvasAutomat` in the global `window` object. You can use it like this:
 
@@ -49,7 +49,7 @@ If you need a specific version of Etvas Automat, you can use the version number 
 
 You can read more about resolving a version (major, minor and so on) by consulting the documentation at [unpkg.com](https://unpkg.com).
 
-**Installing Etvas automat with a package manager**
+### Installing Etvas automat with a package manager
 
 In most cases, your FrontEnd application uses a package manager like `npm` or `yarn` to solve the dependencies. Etvas automat is ready to be used with both, wether you use Vanilla Javascript, you have a React, Vue, Angular or any other FrontEnd framework to develop your application.
 
@@ -77,7 +77,7 @@ import automat from "@etvas/etvas-automat";
 automat.initialize({ ... });
 ```
 
-**Initializing the library**
+### Initializing the library
 
 The library needs some configuration in order to work and communicate properly with our backend services. We do that by calling a function named `initialize`. You will want to call this function as early as possible in your code, making sure it is the first one called:
 
@@ -90,7 +90,7 @@ automat.initialize({
 
 Both `EtvasURL` and `organizationId` values are available in your account on [Partners Portal](https://partners.helloetvas.com).
 
-##### Using Etvas Automat for SSO
+## Using Etvas Automat for SSO
 
 With the token you obtained from your BackEnd, you can sign in the customer with Etvas. Any further call you run on Etvas Automat will use the login information to automatically authenticate the customer.
 
