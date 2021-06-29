@@ -64,6 +64,12 @@ This is the first emitted event. The customer must be able to use the product ri
 - the payment (the first payment in case of subscription) was finalized successfully and the customer's credit card was successfully debited;
 - the email with attached invoice and product Terms And Conditions was sent to the customer;
 
+### Product Purchase Renewed
+
+> event name: `purchase.renewed`
+
+This event is emitted when a subscription to a purchased product has been successfully renewed, the customer card has been debited and a new billing cycle started. The customer is to be able to continue use the product (normal flow).
+
 ### Product Purchase Suspended
 
 > event name: `purchase.suspended`
@@ -109,12 +115,6 @@ In all scenarios, the customer information is to be deleted. A new purchase, by 
 This event occurs when a product with a trial period was purchased and that trial period has just ended. The customer card is expected to be debited. The automatic payment system will issue an invoice (draft) and will try to debit the customer card within the next **hour**. If not successful, it will fallback to the **five days** period when it repeatedly tries to debit the customer card.
 
 **Warning**: Receiving this event **does not mean** the purchase has been completed successfully.
-
-### Product Purchase Renewed
-
-> event name: `purchase.renewed`
-
-This event is emitted when a subscription to a purchased product has been successfully renewed, the customer card has been debited and a new billing cycle started. The customer is to be able to continue use the product (normal flow).
 
 ### Product Purchase Expired
 
