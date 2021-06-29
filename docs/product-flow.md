@@ -114,7 +114,7 @@ In all scenarios, the customer information is to be deleted. A new purchase, by 
 
 This event occurs when a product with a trial period was purchased and that trial period has just ended. The customer card is expected to be debited. The automatic payment system will issue an invoice (draft) and will try to debit the customer card within the next **hour**. If not successful, it will fallback to the **five days** period when it repeatedly tries to debit the customer card.
 
-**Warning**: Receiving this event **does not mean** the purchase has been completed successfully.
+**Warning**: Receiving this event **does not mean** the payment has been successfully charged yet.
 
 ### Product Purchase Expired
 
