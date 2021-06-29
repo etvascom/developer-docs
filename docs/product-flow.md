@@ -134,4 +134,4 @@ This event occurs when the customer requested an Account Deletion procedure, mea
 
 ## Important notes
 
-All the `POST` requests are signed by Etvas Platform. The signatures are to be performed either via `etvas-sdk` (if you are using NodeJS) or implementing the signature verification algorithm described in a separate document. You can find the key for events signature verification in your account on [Partners Portal](https://partners.helloetvas.com), Developers, Signing Secret.
+All the `POST` requests are signed by Etvas Platform. The signatures verification can be performed either via `etvas-sdk` (if you are using NodeJS) or implementing the signature verification algorithm described in a separate document. You can find the key for events signature verification in your account on [Partners Portal](https://partners.helloetvas.com), Developers, Signing Secret.
